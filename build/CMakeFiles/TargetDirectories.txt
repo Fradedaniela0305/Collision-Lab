@@ -1,0 +1,3 @@
+/Users/danielafrade/Desktop/git-hub/Collision-Lab/build/CMakeFiles/collision_sandbox.dir
+/Users/danielafrade/Desktop/git-hub/Collision-Lab/build/CMakeFiles/edit_cache.dir
+/Users/danielafrade/Desktop/git-hub/Collision-Lab/build/CMakeFiles/rebuild_cache.dir
