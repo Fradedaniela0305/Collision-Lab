@@ -7,6 +7,7 @@ struct Box {
     Vector3 size;
 };
 
-
+bool overlap(float positionA, float sizeA, float positionB, float sizeB);
 
 bool checkCollision(const Box& a, const Box& b);
+
