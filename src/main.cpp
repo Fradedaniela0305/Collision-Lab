@@ -8,8 +8,8 @@ struct Object3D {
 };
 
 
-make
-./collision_sandbox
+// make
+// ./collision_sandbox
 
 int main() {
     const int screenWidth = 1000;
