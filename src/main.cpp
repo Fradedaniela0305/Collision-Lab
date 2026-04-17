@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include "collision.h"
 #include <vector>
 
 struct Object3D {
@@ -6,10 +7,6 @@ struct Object3D {
     Vector3 size;
     Color color;
 };
-
-
-// make
-// ./collision_sandbox
 
 int main() {
     const int screenWidth = 1000;
@@ -19,7 +16,7 @@ int main() {
     SetTargetFPS(60);
 
     Camera3D camera = { 0 };
-    camera.position = { 6.0f, 6.0f, 6.0f };
+    camera.position = { 8.0f, 8.0f, 8.0f };
     camera.target = { 0.0f, 1.0f, 0.0f };
     camera.up = { 0.0f, 1.0f, 0.0f };
     camera.fovy = 45.0f;
@@ -29,7 +26,6 @@ int main() {
         { 0.0f, 1.0f, 0.0f },
         { 2.0f, 2.0f, 2.0f },
         BLUE
-
     };
 
     std::vector<Object3D> objects = {
@@ -38,12 +34,25 @@ int main() {
         { { 0.0f, 1.0f, 4.0f }, { 2.0f, 2.0f, 2.0f }, ORANGE }
     };
 
-
     while (!WindowShouldClose()) {
         if (IsKeyDown(KEY_D)) player.position.x += 0.1f;
         if (IsKeyDown(KEY_A)) player.position.x -= 0.1f;
         if (IsKeyDown(KEY_W)) player.position.z -= 0.1f;
         if (IsKeyDown(KEY_S)) player.position.z += 0.1f;
+
+        Box playerBox{ player.position, player.size };
+        bool isColliding = false;
+
+        for (const Object3D& obj : objects) {
+            Box objectBox{ obj.position, obj.size };
+
+            if (checkCollision(playerBox, objectBox)) {
+                isColliding = true;
+                break;
+            }
+        }
+
+        player.color = isColliding ? RED : BLUE;
 
         BeginDrawing();
         ClearBackground(BLACK);
@@ -87,8 +96,8 @@ int main() {
 
         EndMode3D();
 
-        DrawText("WASD to move cube", 20, 20, 20, RAYWHITE);
-        DrawText("Day 3: first 3D scene", 20, 50, 20, RAYWHITE);
+        DrawText("WASD to move player cube", 20, 20, 20, RAYWHITE);
+        DrawText("Player turns red on collision", 20, 50, 20, RAYWHITE);
 
         EndDrawing();
     }

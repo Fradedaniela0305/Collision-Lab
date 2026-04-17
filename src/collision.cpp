@@ -5,7 +5,6 @@
 // make
 // ctest
 
-
 /**
  * @brief Checks whether two axis-aligned bounding boxes (AABB) collide.
  *
