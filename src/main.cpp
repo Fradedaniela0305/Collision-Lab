@@ -1,12 +1,7 @@
 #include "raylib.h"
 #include "collision.h"
 #include <vector>
-
-struct Object3D {
-    Vector3 position;
-    Vector3 size;
-    Color color;
-};
+#include "object.h"
 
 int main() {
     const int screenWidth = 1000;
@@ -29,7 +24,7 @@ int main() {
     };
 
     std::vector<Object3D> objects = {
-        { { 4.0f, 1.0f, 0.0f }, { 2.0f, 2.0f, 2.0f }, RED },
+        { { 4.0f, 1.0f, 0.0f }, { 2.0f, 2.0f, 2.0f }, YELLOW },
         { { -4.0f, 1.0f, 0.0f }, { 2.0f, 2.0f, 2.0f }, GREEN },
         { { 0.0f, 1.0f, 4.0f }, { 2.0f, 2.0f, 2.0f }, ORANGE }
     };
