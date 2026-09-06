@@ -14,6 +14,12 @@ The project demonstrates axis-aligned bounding box (AABB) collision detection, w
 
 Collision detection currently changes the player's color only. Cubes can pass through each other; there is no collision response or physics simulation.
 
+## Preview
+<img width="991" height="684" alt="Screenshot 2026-09-06 at 4 10 51 PM" src="https://github.com/user-attachments/assets/a3d022e7-bd66-462c-a8de-20559a8cc6aa" />
+<img width="984" height="694" alt="Screenshot 2026-09-06 at 4 11 05 PM" src="https://github.com/user-attachments/assets/8b948dcb-583d-4a57-9a04-e2afc1a30d01" />
+
+
+
 ## Requirements
 
 - A C++17-compatible compiler.
